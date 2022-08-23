@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protofiles;
+option go_package = "protofiles/greetpb";
+
+// model
+message Greeting {
+    string name = 1;
+}
+
+// request
+message GreetRequest {
+    string greeting = 1;
+}
+
+// response
+message GreetResponse {
+    string result = 1;
+}
+
+service GreetService {
+    //unary
+    rpc Greet(GreetRequest) returns (GreetResponse) {}
+}
