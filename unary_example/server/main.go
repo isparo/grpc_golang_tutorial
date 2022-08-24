@@ -9,8 +9,10 @@ import (
 	"google.golang.org/grpc"
 )
 
+// this struct could be used to dependency injection
 type server struct{}
 
+// handler
 func (s server) Greet(ctx context.Context, gr *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
 
 	fmt.Println("getting : ", gr.Greeting)
