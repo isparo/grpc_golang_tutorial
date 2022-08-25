@@ -3,14 +3,11 @@ syntax = "proto3";
 package protofiles;
 option go_package = "protofiles/greetpb";
 
-// model
-message Greeting {
-    string name = 1;
-}
 
 // request
 message GreetRequest {
-    string greeting = 1;
+    string countryCode = 1;
+    string userName = 2;
 }
 
 // response

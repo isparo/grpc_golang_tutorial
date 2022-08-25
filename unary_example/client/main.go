@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"log"
 
 	"github.com/josue/grpc_golang_tutorial/unary_example/server/protofiles/greetpb"
 	"google.golang.org/grpc"
@@ -19,13 +19,24 @@ func main() {
 
 	c := greetpb.NewGreetServiceClient(cc)
 
+	getGreeting("Jack", "us", c)
+	getGreeting("Jose", "mx", c)
+
+}
+
+func getGreeting(name, countryCode string, c greetpb.GreetServiceClient) {
+
+	log.Println("creating greeting")
+
 	res, err := c.Greet(context.Background(), &greetpb.GreetRequest{
-		Greeting: "hello",
+		CountryCode: countryCode,
+		UserName:    name,
 	})
 
 	if err != nil {
+		log.Println("error: ", err)
 		panic(err)
 	}
 
-	fmt.Println(res)
+	log.Println(res.Result)
 }
