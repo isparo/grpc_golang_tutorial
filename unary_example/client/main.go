@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/josue/grpc_golang_tutorial/unary_example/server/protofiles/greetpb"
-	"google.golang.org/grpc"
+	grpc "google.golang.org/grpc"
 )
 
 func main() {
