@@ -19,6 +19,8 @@ func main() {
 		log.Println("Error connecting to gRPC server: ", err.Error())
 	}
 
+	defer conn.Close()
+
 	// create the stream
 	client := pb.NewStreamingServiceClient(conn)
 
