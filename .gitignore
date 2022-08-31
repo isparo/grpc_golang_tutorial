@@ -1,2 +1,4 @@
-./unary_example/vendor
-./server_streaming_example/vendor
+unary_example/vendor
+server_streaming_example/vendor
+
+server_streaming_example/vendor/
